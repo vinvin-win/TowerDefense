@@ -1,0 +1,17 @@
+img {
+	width: 32px;
+	padding: 0px;
+}
+body {
+	text-align: center;
+}
+
+table {
+	margin: 0 auto;
+	width: 20px;
+	height: 20px;
+}
+
+td {
+	padding: 5px 20px 20px 5px;	
+}
