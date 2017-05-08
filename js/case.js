@@ -7,7 +7,7 @@ export class Case {
 		this.image = new Image();
 		this.image.src = "image/texture/terre1.JPG";
 		this.coeffDep = 10;
-		this.coteDec = this.cote+this.cote/this.coeffDep
+		this.coteDec = this.cote+this.cote/this.coeffDep;
 		//graphique.drawImage(this.image, 1, 1, this.image.width, this.image.height, this.x*this.cote-this.cote/this.coeffDep, this.y*this.cote-this.cote/this.coeffDep, this.coteDec, this.coteDec);
 	}
 

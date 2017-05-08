@@ -22,9 +22,6 @@ class Matrice {
 			this.nbColonnes = largeur;
 			this.nbLignes = hauteur;
 			this.cote = nbPixel;
-			var css = document.getElementById("matrice");
-			css.width = this.cote*this.nbColonnes;
-			css.height = this.cote*this.nbLignes;
 
 			this.carte = new Array();
 			for(var x = 0; x<this.nbColonnes; x++){
@@ -45,7 +42,9 @@ class Matrice {
 		        return;
 		    }
 
-		    this.cote = Math.trunc(canvas.width/this.nbColonnes);
+		    canvas.width = this.nbColonnes*this.cote;
+		    canvas.height = this.nbLignes*this.cote;
+		    //this.cote = Math.trunc(canvas.width/this.nbColonnes);
 		}
 	
 
@@ -147,12 +146,20 @@ class Matrice {
 }
 
 window.onload = function(){
-	var mat = new Matrice(10,15,30);
+	var mat = new Matrice(20,30,80);
 	canvas.addEventListener("mousedown", zoneClique, false);
-	//mat.ajoutMatrice();
+	//mat.ajoutMatrice();  <img src="image/fontMenuPrincipale.jpg"></img>
 	mat.recupereCarte();
 	//var myInterval = setInterval(animate, 30);
 	vague(3);
+
+
+	var son = document.getElementById("musique");
+
+	//son.innerHTML = "<embed src='musique/Lich King Theme.mp3' hidden=true autostart=true loop=true name='MonSon' mastersound>";
+	//alert(son.innerHTML);
+
+
 
 	function animate()
     {
@@ -164,18 +171,35 @@ window.onload = function(){
     }
 
 
+    function getDecallageElment(element) {
+    var cx = 0;
+    var cy = 0;
+ 
+    while(element && !isNaN(element.offsetLeft) && !isNaN(element.offsetTop)) {
+        cx += element.offsetLeft - element.scrollLeft;
+        cy += element.offsetTop - element.scrollTop;
+        element = element.offsetParent;  //On récupère les offset de tout les conteneur parent de l'element
+    }
+    return { haut: cy, gauche: cx };
+}
+
     function zoneClique(event){
 		var x = event.x;
 	  	var y = event.y;
 
-	  	x -= canvas.offsetLeft;
-	  	y -= canvas.offsetTop;
+	  	//x -= canvas.offsetLeft;
+	  	//y -= canvas.offsetTop;
+
+	  	x = event.pageX - window.pageXOffset- getDecallageElment(canvas).gauche;
+        y = event.pageY - window.pageYOffset - getDecallageElment(canvas).haut;
+
 	  	//new Dragon(x,y,50,mat.getCote(),"B");
+	  	//alert("x:" + x + " y:" + y);
 	  	x/=mat.getCote();
 	  	y/=mat.getCote();
 	  	x = Math.trunc(x);
 	  	y = Math.trunc(y);
-	  	//alert("x:" +  x + " y:" + y);
+	  	
 	  	//mat.recupereCarte();
 	  	//changeCase(x,y);
 
@@ -183,7 +207,7 @@ window.onload = function(){
 	  	//y = y/this.cote;
 	  	//alert(mat.getCase(x,y).estConstructible());
 	  	
-	  	mat.setCase(x,y, new CaseChemin(x,y,mat.getCote(), 1, 1, 200, 3));
+	  	mat.setCase(x,y, new CaseArbre(x,y,mat.getCote(), 1, 1, 200, 3));
 	  	mat.getCase(x,y).dessinCase();
 	  	//alert(mat.getCase(x,y).estConstructible());
 	  	
