@@ -3,6 +3,7 @@ table.img{
 	height: 40px;
 	padding: 0px;
 }
+
 body {
 	text-align: center;
 }
@@ -12,37 +13,110 @@ table {
 	margin: 20 auto;
 	width: 100%;
 	height: 40px;
+	border: 5px groove;
 
 }
 
 td {
 	background-repeat: no-repeat;
 	text-align: center;
-	width: 30%;
-	height: 40px;
-	//padding: 5px 20px 20px 5px;	
+	width: 15%;
+	height: 40px;	
 }
 
 canvas {
-	margin-bottom: 200px;
-	margin-top: 40px;
+	margin-bottom: 240px;
+	margin-top: 60px;
+
 }
 
+#interface{
+	width: 100%;
+	height: 240px;
+
+}
+
+img{
+	height: 200px;
+	padding: 10px;
+}
+
+#imageToure {
+	height: 200px;
+	width: 200px;
+	padding: 15px;
+}
+
+input+img{
+	height: 20px;
+	width: 50;
+}
+
+#donnee {
+	text-align: left;
+	table {
+	margin: 20 auto;
+	width: 100%;
+	height: 40px;
+	}
+}
+
+
+#amelioration {
+	background-repeat: no-repeat;
+
+	table {
+	margin: 20px auto;
+	width: 100%;
+	height: 40px;
+	}
+}
 
 #MenuHaut {
- display: block;
- position: fixed;
- margin-top: 0px;
- top: 0px;
- left: 0px;
- width: 100%;
- height: 40px;
- text-align: center;
- text-indent: 0px;
- font-size: 18px;
- color: #FFFFFF;
+	display: block;
+	position: fixed;
+	margin-top: 0px;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	text-indent: 0px;
+	font-size: 18px;
+	color: #FFFFFF;
+
+
  
 }
+
+input{
+		 width: 150px;
+		 height: 30px;
+	}
+
+ul.maps ul li input{
+		 width: 80px;
+		 height: 30px;
+	}
+
+ul.maps li {
+		margin: 5px auto;
+	}
+
+ul.maps ul{
+		 list-style-type: none;
+	}
+
+ul.maps {
+		list-style-type: none;
+	}
+ul.maps ul {
+		display: none;
+	} 
+ul.maps li:hover ul.map {
+		display: block;
+	}
+
 
 
 #MenuPrincipale {
@@ -51,13 +125,12 @@ canvas {
  bottom: 0px;
  left: 0px;
  width: 100%;
- height: 150px;
- padding-top: 10px;
+ height: 240px;
+ padding-top: 0px;
  text-align: center;
  text-indent: 0px;
  font-size: 18px;
  color: #FFFFFF;
  background-color: #111111;
- //background: url("image/fontMenuPrincipale.jpg");
  }
 

@@ -5,39 +5,73 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <meta name="author" content="Fabien Hermenier">    
+    <meta name="author" content="Thomas Dandre Honnoraty Vincent">    
     <link type="text/css" rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/matrice.js"></script>
   </head>
 
 
-<body>
+<body background="image/font.jpg">
 
 
 
 <div id="MenuHaut">
 
     <center>
-      <table border=0 background="image/fontPierreMenu2.jpg">
+      <table id="info" border=0 background="image/fontPierreMenu2.jpg">
         <tr>
-          <td id="or">50 PO</td>
-          <td id="vague">Vague: 5</td>
-          <td id="nbmonstre">30 monstres restent</td>
+          <td id="or"></td>
+          <td id="vague">Vague: 1</td>
+          <td id="nbmonstre"></td>
+          <td id="partie"><input type="button" value="Lancer la vague" onclick="vagueSuivante()"></td>
+          <td>
+            <ul class="maps">
+              <li>
+                <input type="button" onclick="chargeMap('vide')" value="Recommencer sur :"></input>
+                <ul class="map">
+                    <li><input type="button" value="Forêt" onclick="chargeMap('foret')"></li>
+                    <li><input type="button" value="Plaine" onclick="chargeMap('plaine')"></li>
+                    <li><input type="button" value="Desert" onclick="chargeMap('desert')"></li>
+                </ul>
+              </li>
+            </ul>
+          </td>
         </tr>
       </table>
     </center>
+
 </div>
 
+<div id="font-canvas">
     <canvas id="mon_canvas" width="900" height="900">
             Message pour les navigateurs ne supportant pas encore canvas.
     </canvas>
+</div>
 
+    <div id="MenuPrincipale">
+      <center>
+        <table id= "interface" border=0 background="image/fontMenuPrincipale.jpg">
+          <tr>
+            <td>
+              <img id="imageToure" alt="">
+            </td>
+            <td>
+            Information:
+              <table>
+                <tr>
+                  <td id="donnee">
 
-    <div id="MenuPrincipale" >
-    Choisire emplacement toure
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td id="amelioration">
+            </td>
+          </tr>
+       </table>
+      </center>
     </div>
 
-
+    <div id="musique"></div>
 </body>
 </html>
